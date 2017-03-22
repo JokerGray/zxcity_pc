@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <title>泡圈聊天</title>
+    <link rel="stylesheet" href="../common/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+</head>
+<body>
+    <div class="circleContainer container">
+        <!--活动/动态/相册-->
+        <div class="circleLft">
+            <!--活动-->
+            <div class="circle-activity">
+                <h3>
+                    <span>活动</span>
+                    <div class="circle-share">
+                        <span>分享给朋友：</span>
+                        <ul class="shareList">
+                            <li><a class="qzone"></a></li>
+                            <li><a class="sina"></a></li>
+                            <li><a class="qq"></a></li>
+                        </ul>
+                    </div>
+                </h3>
+                <!--活动列表-->
+                <div class="activityDetail">
+                    <div class="activityDetail-info">
+                        <div class="activityImg">
+                            <img src="img/activeImg1.jpg">
+                            <!--价格/报名人数等-->
+                            <div class="activityLayer">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--用户信息/活跃玩家圈-->
+        <div class="circleRgt"></div>
+    </div>
+</body>
+</html>

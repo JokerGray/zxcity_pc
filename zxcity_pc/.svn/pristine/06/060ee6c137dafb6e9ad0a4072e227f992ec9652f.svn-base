@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <title>约吧服务</title>
+    <link rel="stylesheet" href="../common/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="css/appointment.css">
+</head>
+<body>
+    <!--正文内容-->
+    <div class="appointment-body container">
+        <div class="appointment-content">
+            <!--证书及相关信息-->
+            <div id="tabInfo" class="content-info">
+                <div class="info-menu">
+                    <ul id="menuTab" class="btn-group">
+                    </ul>
+                </div>
+               <!-- <div class="info-cook">
+                    <div class="cook-slider">
+                        <div id="myCarousel" class="slideBox">
+                            <div id="carousel-inner" class="bd">
+                                <ul>
+                                    <li><img src="img/cook1.png" /></li>
+                                    <li><img src="img/cook2.png" /></li>
+                                </ul>
+                            </div>
+                            <a class="prev" href="javascript:void(0)"></a>
+                            <a class="next" href="javascript:void(0)"></a>
+                        </div>
+                        <div class="cookPage"><span class="cookpage-num">1</span>/<span class="cookpage-sum">2</span></div>
+                        <div class="cookTitle">厨师证</div>
+                    </div>
+                    <div class="infoDetail">
+                        <ul class="infoDetail-ul">
+                            <li>线下报价：<span>100元/次</span></li>
+                            <li>服务评分：<div class="star"><i class="yellowStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i></div></li>
+                            <li>服务次数：<span>1128次</span></li>
+                            <li>点赞次数：<span>100次</span></li>
+                        </ul>
+                        <dl>
+                            <dt>服务时间：</dt>
+                            <dd>周一至周日</dd>
+                            <dt>服务方式：</dt>
+                            <dd><button type="button" class="btn">Ta来找我</button><button type="button" class="btn">我去找Ta</button></dd>
+                            <dt>服务范围：</dt>
+                            <dd>武汉市 洪山区</dd>
+                            <dt>服务地址：</dt>
+                            <dd>武汉市 洪山区 陌陌小区 7栋 701号</dd>
+                            <dt>服务介绍：</dt>
+                            <dd>论吃饭 让你先点，是尊重。为你夹菜，是体贴及时擦掉污渍是干净,和服务员说谢谢是礼貌。这些加起来，就是一个人的教养。</dd>
+                            <dt>服务特色：</dt>
+                            <dd>论吃饭 让你先点，是尊重。为你夹菜，是体贴及时擦掉污渍是干净,和服务员说谢谢是礼貌。这些加起来，就是一个人的教养。</dd>
+                        </dl>
+                    </div>
+                </div>-->
+                <div class="share">
+                    <span>分享给朋友：</span>
+                    <ul class="shareList">
+                        <li><a class="qzone"></a></li>
+                        <li><a class="sina"></a></li>
+                        <li><a class="qq"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--评论-->
+            <div class="content-conment">
+                <div class="conmentTit">
+                    <h3>评论(<span>2</span>)</h3>
+                </div>
+                <div class="conmentDetail">
+                    <div class="conmentDetail-info">
+                        <div class="conmentDetail-head">
+                            <img src="img/conmentTx.png">
+                        </div>
+                        <div class="conmentDetail-article">
+                            <div class="article-nameInof">
+                                <div class="nameInfo-username"><span>90后疯狂的石头</span><i class="man"></i></div>
+                                <div class="nameInfo-star"><i class="yellowStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i></div>
+                            </div>
+                            <div class="conment-date">2016-09-12</div>
+                            <div class="conment-text">论吃饭 让你先点，是尊重。为你夹菜，是体贴及时擦掉污渍是干净,和服务员说谢谢是礼貌。这些加起来，就是一个人的教养。</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn lookMore">查看更多</button>
+                </div>
+            </div>
+        </div>
+        <!--侧边栏-->
+        <div class="appointment-sidebar">
+            <div class="sidebar-userInfo">
+                <div class="userInfo-background">
+                    <i></i>
+                    <div class="userInfo-mask"></div>
+                </div>
+                <div class="userInfo-infomation">
+                    <i class="headTx"></i>
+                    <div class="nameInfo-username"><span>80年代的石头</span><i class="man"></i></div>
+                    <div class="clear"></div>
+                    <div id="isPhoneCert" class="phoneTest"><i class="phoneIcon"></i><span>手机已认证</span></div>
+                    <div id="isRealName" class="idTest"><i class="idIcon"></i><span>身份已认证</span></div>
+                </div>
+            </div>
+            <div class="sidebar-hotSale">
+                <h4><i class="topIocn"></i>约吧热销榜</h4>
+                <ul id="topRank" class="hotSaleList">
+                   <!-- <li>
+                        <div class="topHead">
+                            <i class="topNum1"></i>
+                            <img src="img/top1.png" />
+                        </div>
+                        <div class="topInfo">
+                            <p class="topInfo-message">团队爬山游玩啦</p>
+                            <p class="topInfo-userName">迷雾中的胖子</p>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>-->
+                </ul>
+                <div class="jiange"></div>
+            </div>
+            <div class="sidebar-fierce">
+                <h4><i class="topIocn"></i>约吧牛人榜</h4>
+                <ul id="hotPerson" class="fierceList">
+                    <!--<li>
+                        <div class="topHead">
+                            <i class="topNum1"></i>
+                            <img src="img/top1.png">
+                        </div>
+                        <div class="topInfo">
+                            <div class="topInfo-message">团队爬山游玩啦lallalalal</div>
+                            <div class="topInfo-userName">迷雾中的胖子</div>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>-->
+                </ul>
+                <div class="jiange"></div>
+            </div>
+        </div>
+    </div>
+    <!--js引用部分-->
+    <script src="../common/scripts/commonUtil.js"></script>
+    <script src="../common/scripts/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.SuperSlide.2.1.1.js"></script>
+    <script src="js/appointment.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>同城云店-视频教程</title>
+    <link rel="stylesheet" href="css/videoStudy.css">
+</head>
+<body>
+<div id="main">
+    <div class="zhanghu">
+        <div class="title">
+            <p>账户维护</p>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>1.1</span>
+                <span>录入门店、职务</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>1.1</span>
+                <span>录入门店、职务</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>1.1</span>
+                <span>录入门店、职务</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>1.1</span>
+                <span>录入门店、职务</span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="shopping">
+        <div class="title">
+            <p>录入商品、服务卡</p>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>2.1</span>
+                <span>录入服务卡、服务套餐</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>2.1</span>
+                <span>录入服务卡、服务套餐</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>2.1</span>
+                <span>录入服务卡、服务套餐</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>2.1</span>
+                <span>录入服务卡、服务套餐</span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="type">
+        <div class="title">
+            <p>录入会员卡类型</p>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>3.1</span>
+                <span>录入会员卡类型</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>3.1</span>
+                <span>录入会员卡类型</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>3.1</span>
+                <span>录入会员卡类型</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>3.1</span>
+                <span>录入会员卡类型</span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="title">
+            <p>录入促销活动</p>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>4.1</span>
+                <span>录入会员卡类型</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>4.1</span>
+                <span>录入会员卡类型</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>4.1</span>
+                <span>录入会员卡类型</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>4.1</span>
+                <span>录入会员卡类型</span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="cloud">
+        <div class="title">
+            <p>云店详细信息维护</p>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>5.1</span>
+                <span>云店装饰、云店编辑</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>5.1</span>
+                <span>云店装饰、云店编辑</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>5.1</span>
+                <span>云店装饰、云店编辑</span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="black"></div>
+            <div class="txt">
+                <span>5.1</span>
+                <span>云店装饰、云店编辑</span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

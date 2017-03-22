@@ -1,0 +1,245 @@
+(function($){
+    var pageNo = 1, pageSize = 5;
+    var cityId = 4201;
+    var userId = 62;
+    var paramRank = "{'cityId':" + cityId + ", 'pagination':{'page':" + pageNo + ",'rows':"+ pageSize +"}}";//热销榜入参
+    var paramPerson = "{'cityId':" + cityId + ", 'pagination':{'page':" + pageNo + ",'rows':"+ pageSize +"}}";//约吧牛人榜入参
+    var paramUserSkill = "{'userId':" + userId +"}";//技能相关信息入参
+    var SERVICETIME = {
+        "1":"全周",
+        "2":"非周末",
+        "3":"只周末",
+        "4":"全天",
+        "5":"只白天",
+        "6":"只晚上"
+    };
+    var SERVICEMODE = {
+        "1":"服务者找需求者",
+        "2":"需求者找服务者",
+        "3":"线上服务"
+    };
+    var REQUEST_URL = {
+        TOPRANK: 'newservice/getTopRanking', //约吧热销榜列表
+        HOTPERSON: 'newservice/getHotPersonList',//约吧牛人榜列表
+        USERSKILL: 'shopWeb/getUserSkillDetailInfo'//查询指定用户发布的技能信息
+    };
+
+    //热销榜列表
+    function topRank(){
+        var res = CommonUtil.ajaxData(REQUEST_URL.TOPRANK,paramRank);
+        var sHtml = "";
+        if(res.code == 1){
+            for(var i = 0; i < res.data.length; i++){
+                var row = res.data[i];
+                sHtml += '<li date-userId="'+ row.serviceUserId +'">' +
+                            '<div class="topHead">' +
+                                 '<i class=" topNum'+(i+1)+'"></i>' +
+                                '<div class="topImage"><img src="' + row.serviceUrl + '"/></div>' +
+                            '</div>' +
+                            '<div class="topInfo">' +
+                                '<p class="topInfo-message">' + row.categoryId + '</p>'
+                if(row.serviceUserName == null){
+                    sHtml += '<p class="topInfo-userName">' + '空' + '</p>';
+                }else{
+                    sHtml += '<p class="topInfo-userName">' + row.serviceUserName + '</p>';
+                }
+                sHtml += '<div class="fans"><i class="heart"></i><span>' + 1200 + '</span></div>' +
+                            '<div class="service"><i class="talk"></i><span>' + row.orderNumber + '</span></div>' +
+                        '</div>' +
+                    '</li>';
+            };
+            $("#topRank").append(sHtml);
+        }else{
+            console.log(res.msg);
+        }
+    };
+
+    topRank();
+
+    //约吧牛人榜
+    function hotPerson(){
+        var res = CommonUtil.ajaxData(REQUEST_URL.HOTPERSON,paramPerson);
+        var sHtml = "";
+        if(res.code == 1){
+            for(var i = 0; i < res.data.length; i++){
+                var row = res.data[i];
+                sHtml += '<li id="'+ row.userId +'">' +
+                            '<div class="topHead">' +
+                                '<i class="topNum'+(i+1)+'"></i>' +
+                                '<div class="topImage"><img src="' + row.userPic + '"/></div>' +
+                            '</div>' +
+                            '<div class="topInfo">' +
+                                '<p class="topInfo-message">' + '哈哈哈哈哈' + '</p>'
+                if(row.serviceUserName == null){
+                    sHtml += '<p class="topInfo-userName">' + '空' + '</p>';
+                }else{
+                    sHtml += '<p class="topInfo-userName">' + row.userName + '</p>';
+                }
+                sHtml += '<div class="fans"><i class="heart"></i><span>' + row.collection + '</span></div>' +
+                            '<div class="service"><i class="talk"></i><span>' + 1200 + '</span></div>' +
+                         '</div>' +
+                        '</li>';
+            };
+            $("#hotPerson").append(sHtml);
+        }else{
+            console.log(res.msg);
+        }
+    };
+
+    hotPerson();
+
+   //左侧技能相关信息
+    function userSkill(){
+        var res = CommonUtil.ajaxData(REQUEST_URL.USERSKILL,paramUserSkill);
+        var sHtml = "";
+        var dHtml = "";
+        if(res.code == 1) {
+          //右侧用户信息
+            $(".userInfo-background").find("i").css("background-image","url("+res.data.userPic+")");//头像以及背景图
+            $(".userInfo-infomation").find(".headTx").css("background-image","url("+res.data.userPic+")");
+            $(".nameInfo-username span").html(res.data.userName);//用户名
+            //判断性别
+            if(res.data.userSex == "女"){
+                $(".nameInfo-username i").attr("class","woman");
+            }else{
+                $(".nameInfo-username i").attr("class","man");
+            };
+            //判断手机认证
+            if(res.data.isPhoneCert == 1){
+                $("#isPhoneCert").find("span").html("手机已认证");
+            }else{
+                $("#isPhoneCert").find("span").html("手机未认证");
+            };
+            //判断身份认证
+            if(res.data.isRealName == 1){
+                $("#isRealName").find("span").html("身份已认证");
+            }else{
+                $("#isRealName").find("span").html("身份未认证");
+            };
+            //左侧技能相关信息
+            var skillArr = [];
+            for(var i = 0; i < res.data.skillList.length; i++){
+                skillArr.push(res.data.skillList[i]);
+            };
+            //顶部服务技能名称
+            for(var i = 0; i < skillArr.length; i++){
+                sHtml += '<li class="tabNav" data-serviceId="'+ skillArr[i].serviceId  +'"><span>'+skillArr[i].serviceName+'</span></li>';
+            };
+            $("#menuTab").append(sHtml).find("li").eq(0).addClass("active");
+
+           for(var a = 0; a < skillArr.length; a ++){
+                    dHtml += '<div class="info-cook" data-serviceId="'+ skillArr[a].serviceId +'">' +
+                                '<div class="cook-slider">'
+                                    var certList = skillArr[a].certList;
+                                    if(certList.length > 0){
+                                        //轮播begin
+                                        dHtml += '<div class="slideBox">' +
+                                            '<div class="hd">'+
+                                                '<ul>'
+                                                for(var e = 0 ; e < certList.length ; e++){
+                                                    dHtml += '<li>'+ (e+1)+'/'+ certList.length + '</li>';
+                                                };
+                                            dHtml += '</ul>'+
+                                                '</div>'+
+                                                // 轮播（Carousel）项目
+                                                '<div class="bd">'+
+                                                     '<ul>'
+                                                for(var j = 0 ; j < certList.length ; j++){
+                                                    dHtml += '<li><img src="' + certList[j].certUrl +'" alt="slide" /></li>';
+                                                };
+                                        dHtml +=   '</ul>'+
+                                        '</div>' +
+                                        //轮播（Carousel）导航
+                                            '<a class="prev" href="javascript:void(0)"></a>' +
+                                            '<a class="next" href="javascript:void(0)"></a>' +
+                                        '</div>'
+                                        for(var k = 0 ; k < skillArr[a].certList.length ; k++){
+                                            dHtml += '<div class="cookTitle">' +  certList[k].certName + '</div>';
+                                        };
+                                    }
+                                    dHtml += '</div>' +
+                                    '<div class="infoDetail">' +
+                                    '<ul class="infoDetail-ul">' +
+                                    '<li>线下报价：<span>' + skillArr[a].servicePrice + '元/次</span></li>' +
+                                    '<li>服务评分：<div class="star">'
+                                    switch(skillArr[a].startLevel){
+                                        case 0:
+                                            dHtml += '<i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i>';
+                                            break;
+                                        case 1:
+                                            dHtml += '<i class="yellowStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i>';
+                                            break;
+                                        case 2:
+                                            dHtml += '<i class="yellowStar"></i><i class="yellowStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i>';
+                                            break;
+                                        case 3:
+                                            dHtml += '<i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i><i class="grayStar"></i><i class="grayStar"></i>';
+                                            break;
+                                        case 4:
+                                            dHtml += '<i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i><i class="grayStar"></i>';
+                                            break;
+                                        default :
+                                            dHtml += '<i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i>';
+                                    };
+                                    dHtml += '</div></li>' +
+                                    '<li>服务次数：<span>'+ skillArr[a].serviceUnit +'</span></li>' +
+                                    '<li>点赞次数：<span>'+ skillArr[a].collection +'次</span></li>' +
+                                    '</ul>' +
+                                    '<dl>' +
+                                        '<dt>服务时间：</dt>' +
+                                        '<dd>'
+                                for(var b = 0; b < skillArr[a].serviceTime.length; b++){
+                                    if(skillArr[a].serviceTime[b]!=','){
+                                        dHtml += SERVICETIME[skillArr[a].serviceTime[b]] + ' ';
+                                    }
+                                }
+
+                        dHtml +=   '</dd>'+
+                                   '<dt>服务方式：</dt>'+
+                                   '<dd>'
+                                for(var c = 0; c < skillArr[a].serviceMode.length; c++){
+                                    if(skillArr[a].serviceMode[c]!=',') {
+                                        dHtml += '<button type="button" class="btn">' + SERVICEMODE[skillArr[a].serviceMode[c]] + '</button>' + ' ';
+                                    }
+                                }
+                        dHtml += '</dd>'+
+                                 '<dt>服务范围：</dt>' +
+                                 '<dd>'+skillArr[a].serviceRange+'</dd>'+
+                                 '<dt>服务地址：</dt>'+
+                                 '<dd>'+skillArr[a].serviceAddress+'</dd>'+
+                                 '<dt>服务介绍：</dt>'+
+                                 '<dd>'+skillArr[a].serviceComment+'</dd>'+
+                                 '<dt>服务特色：</dt>'+
+                                 '<dd>'+skillArr[a].characteristic+'</dd>'+
+                            '</dl>'+
+                        '</div></div>'
+                    }
+                    $(".info-menu").after(dHtml);
+                    changeTab();
+                //证书滚动
+            jQuery(".slideBox").slide({mainCell:".bd ul",autoPlay:true});
+        }else{
+            console.log(res.msg);
+        }
+    };
+
+    userSkill();
+
+    //服务技能名称tab切换
+    function changeTab() {
+        var btnLeng = $("#menuTab").find("li").length;
+        var tabWidt = Math.round(100/btnLeng) + '%';
+        $("#menuTab").find("li").width(tabWidt);
+        $(".info-cook").eq(0).addClass("actve").siblings(".info-cook").attr("class","info-cook");
+        $("#menuTab").on("click", "li", function () {
+            var serviceId = $(this).attr("data-serviceId");
+            $(this).addClass("active").siblings().attr("class","tabNav");
+            $(".info-cook").each(function(){
+                if(serviceId == $(this).attr("data-serviceId")){
+                    $(this).addClass("actve").siblings(".info-cook").attr("class","info-cook");
+                }
+            })
+        });
+    };
+
+})(jQuery);

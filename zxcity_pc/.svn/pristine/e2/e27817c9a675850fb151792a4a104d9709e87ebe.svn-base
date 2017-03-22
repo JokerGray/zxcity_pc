@@ -1,0 +1,98 @@
+(function($){
+    var coolId = 6143, //炫id
+        sCurrUserId = 16, //当前登录人id
+        coolVideoTypeId = 2, //类型：1-我要炫，2-电子名片
+        coolUserId = 52144,
+        coolAreaNo = '4201';
+
+    //获取我要炫详情
+    function getCoolDetailById(){
+        var jsonData = "{'coolId':'"+coolId+"', 'sCurrUserId':'"+sCurrUserId+"', 'coolVideoTypeId': "+coolVideoTypeId+"}";
+        var res = CommonUtil.ajaxData('circle/getCBID', jsonData);
+        if(res.code == 1){
+            var mPlmap = res.data.mPlmap;
+            $(".video-intro .title").text(res.data.coolDecrip);
+            $(".video-intro .time").text(res.data.coolTime);
+            var videoHtml = '<video controls poster="'+res.data.coolCoverPic+'" src="'+res.data.coolFileAddress+'"></video>'
+            $(".video").html(videoHtml);
+            $(".view-show span").text(mPlmap.totalCount);
+            $(".like-show span").text(mPlmap.totalLikeCount);
+            if(1 == mPlmap.isClicked){
+                $(".like-show a").addClass("active");
+            }
+        }else{
+            console.error(res.msg);
+        }
+    }
+    getCoolDetailById();
+
+    //XX的更多全民炫
+    function getMoreListByUser(){
+        var jsonData = "{'coolUserId':'"+coolUserId+"','coolVideoTypeId':'"+coolVideoTypeId+"','sStartpage':'1','sPagerows':'6'}";
+        var res = CommonUtil.ajaxData('circle/getCBUID', jsonData);
+        if(res.code == 1){
+            var obj = res.data.myCool, sHtml = '';
+            if(obj.length > 0){
+                for(var i=0; i<obj.length; i++){
+                    sHtml += '<li id="'+obj[i].coolId+'"><div class="pic">'
+                        + '<img src="'+obj[i].coolCoverPic+'" alt="'+obj[i].coolDecrip+'" /></div>'
+                        + '<div class="title">'+obj[i].coolDecrip+'</div></li>'
+                }
+                $(".user-cool-list ul").html(sHtml);
+            }
+        }else{
+            console.error(res.msg);
+        }
+    }
+    getMoreListByUser();
+
+    //全民炫精选排行数据展示
+    function rankListShow(){
+        var jsonData = "{'coolAreaNo':'"+coolAreaNo+"','coolMorefield3':'hot','sCurrUserId':'"+sCurrUserId+"','coolVideoTypeId':"+coolVideoTypeId+",'sStartpage':1,'sPagerows':5}";
+        var res = CommonUtil.ajaxData('circle/getAllCool', jsonData);
+        if(res.code == 1){
+            var obj = res.data, sHtml = '';
+            if(obj.length > 0){
+                for(var i=0; i<obj.length; i++){
+                    var userObj = obj[i].sysUser, mPlmap = obj[i].mPlmap;
+                    var cNum = mPlmap.commentList.length;
+                    sHtml += '<li><span class="num"></span>'
+                        + '<div class="media"><div class="media-left">'
+                        + '<a><img src="'+userObj.userpic+'"></a></div>'
+                        + '<div class="media-body"><h4 class="media-heading">'+obj[i].coolDecrip+'</h4>'
+                        + '<p class="name">'+userObj.username+'</p>'
+                        + '<div class="other"><div class="pull-left">'
+                        + '<span class="like-icon glyphicon glyphicon-heart"></span>'
+                        + '<span class="like-num">'+mPlmap.totalLikeCount+'</span></div>'
+                        + '<div class="pull-left"><i class="comments-num-icon"></i>'
+                        + '<span class="comments-num">'+cNum+'</span></div>'
+                        + '</div></div></div></li>'
+                }
+            }
+            $(".cool-rank-list ul").html(sHtml);
+        }else{
+            console.error(res.msg);
+        }
+    }
+    rankListShow();
+
+    //获取评论列表
+    function getCommentsList(){
+        var res = CommonUtil.ajaxData('', jsonData);
+        if(res.code == 1){
+
+        }else{
+
+        }
+    }
+
+    //发表评论
+    function addComments(){
+        var res = CommonUtil.ajaxData('', jsonData);
+        if(res.code == 1){
+
+        }else{
+
+        }
+    }
+})(jQuery);

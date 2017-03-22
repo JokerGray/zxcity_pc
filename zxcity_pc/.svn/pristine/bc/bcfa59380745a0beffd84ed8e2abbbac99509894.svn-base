@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <title></title>
+    <link rel="stylesheet" href="../common/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="css/userCenter.css">
+</head>
+<body>
+<div id="wrapper">
+    <div class="breadNav">
+        <ol>
+            <li><a href="javascript:void(0)">首页</a></li>
+            <li></li>
+            <li><a href="javascript:void(0)">玩家挣钱</a></li>
+        </ol>
+        <div class="mobilePhone">
+            观看更多精彩
+        </div>
+    </div>
+    <div class="mainLeft">
+        <div class="mainLeft-title">
+            看不够的金秋坝上，走一趟北京-内蒙-红山军马场！
+        </div>
+        <div class="mainLeft-bg">
+            <div class="enroll-num">
+                <p>至少要10人报名才能开始</p>
+                <div>
+                    <i></i>
+                    80/120
+                </div>
+            </div>
+        </div>
+        <div class="enroll-end">
+            <div class="enroll-time">
+                距报名截至
+                <span>07</span>
+                <i>天</i>
+                <span>20</span> :
+                <span>17</span> :
+                <span>29</span>
+            </div>
+        </div>
+        <div class="bull-info">
+            <div class="supporter">
+                <span>暂无买单者</span>
+                <span>赞助者：</span>获得6家赞助
+                <p>￥<i class="price">1988</i></p>
+            </div>
+            <div class="time">
+                15.10.23 上午10:00 ~ 15.10.24 下午06:00
+            </div>
+            <div class="address">
+                汉口火车站中央大厅门口
+            </div>
+            <div class="phone-num">
+                15001234561
+            </div>
+            <div class="circleImg">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li>+13</li>
+                </ul>
+            </div>
+        </div>
+        <div class="video-details">
+            <video src="#"></video>
+            <div class="mask">
+                <div class="play">
+                    <i></i>
+                </div>
+            </div>
+            <div class="txt-details">
+                <div class="details-title">
+                    详情介绍
+                    <i></i>
+                </div>
+                <div class="main-txt">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda, commodi deleniti
+                    distinctio dolore enim est excepturi explicabo ipsam iste, minima nam nobis pariatur possimus
+                    praesentium quo repellendus veritatis voluptatum. Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Amet beatae deleniti dolorem est eum impedit magni optio soluta? Accusantium
+                    assumenda consequatur deserunt distinctio enim laboriosam laudantium molestiae obcaecati praesentium
+                    unde. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda deleniti, dolore minima
+                    optio provident repudiandae sint voluptatum. Aperiam blanditiis corporis delectus facere hic
+                    incidunt ipsa magni quisquam quo, recusandae tempora. Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Amet ex, molestias! Accusamus amet corporis dicta, eaque enim et itaque
+                    laudantium, magni molestias praesentium quae quisquam reiciendis totam, ullam unde. Explicabo! Lorem
+                    ipsum dolor sit amet, consectetur adipisicing elit. Cumque excepturi fugit omnis perferendis sint
+                    tempore vel. Consequatur, dicta, doloremque eligendi ex fugiat iste iusto necessitatibus nobis
+                    perferendis quae recusandae, rem!
+                </div>
+                <div class="details-img"></div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="issuer">
+            <div class="issuer-Info"></div>
+            <span>发布人</span>
+            <span class="user">亚历桑德拉</span>
+            <span>实名认证</span>
+        </div>
+        <div class="hotCircle">
+            <div class="sidebar-title">
+                <h4 class="txt">最热玩家圈活动</h4>
+            </div>
+            <div class="sidebar-list">
+                <ul>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">1</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">2</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">3</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">4</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">5</i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="hotFans">
+            <div class="sidebar-title">
+                <h4 class="txt">最热粉团队活动</h4>
+            </div>
+            <div class="sidebar-list">
+                <ul>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">1</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">2</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">3</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">4</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">5</i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../common/scripts/jquery-1.11.1.min.js"></script>
+<script src="../common/scripts/commonUtil.js"></script>
+<script>
+
+</script>
+</html>

@@ -1,0 +1,27 @@
+(function($){
+    /**
+     * 首页业务逻辑及相关操作
+     */
+    var cityId = 4201, pageNo = 1, pageSize = 10;
+    
+
+
+
+    //加载约吧热销榜
+    function getHotsellListData(){
+        var param = "{'cityId':"+cityId+",'pageNo':"+pageNo+",'pageSize':"+pageSize+"}";
+        var resData = CommonUtil.ajaxData("shopWeb/getTopRanking", param);
+        if(resData.code == 1){
+
+        }
+    }
+
+    //加载约吧牛人榜
+    function getHotpersonListData(){
+        var param = "{'cityId':"+cityId+",'pageNo':"+pageNo+",'pageSize':"+pageSize+"}";
+        var resData = CommonUtil.ajaxData("shopWeb/getHotPersonList", param);
+        if(resData.code == 1){
+
+        }
+    }
+})(jQuery);

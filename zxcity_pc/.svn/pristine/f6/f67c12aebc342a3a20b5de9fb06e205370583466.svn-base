@@ -1,0 +1,24 @@
+<div class="header">
+    <div class="header-top">
+        <div class="container">
+            <h1 class="logo pull-left"><img src="common/images/logo.png" alt="智享城市"></h1>
+            <div class="pull-right link-btn">
+                <a data-rel="login" class="login-link" href="javascript:void(0);">登录</a>
+                <span>/</span>
+                <a data-rel="register" class="register-link" href="javascript:void(0);">注册</a>
+            </div>
+        </div>
+    </div>
+    <div class="header-nav">
+        <div class="container">
+            <ul class="nav nav-pills" role="navigation">
+                <li role="presentation"><a href="javascript:void(0);">发现</a></li>
+                <li role="presentation"><a href="javascript:void(0);">泡圈聊天</a></li>
+                <li role="presentation"><a href="javascript:void(0);">同城云店</a></li>
+                <li role="presentation"><a href="videoDetails/videoStudy.html" target="_blank">视频教程</a></li>
+                <li role="presentation"><a href="recruit/recruit.html" target="_blank">公司招聘</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="loginPopBox"></div>

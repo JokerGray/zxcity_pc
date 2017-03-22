@@ -1,0 +1,452 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: normal;
+  font-style: normal;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif, "宋体";
+  line-height: 1;
+  background: #f4f4f4;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  color: #7e8c8d;
+  text-decoration: none;
+  -webkit-backface-visibility: hidden;
+}
+li {
+  list-style: none;
+}
+/*******************************************************************/
+#main {
+  width: 1140px;
+  margin: 0 auto;
+  padding: 0 10px 0 30px;
+  background: #ffffff;
+}
+#main:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#main .zhanghu:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#main .zhanghu .title {
+  position: relative;
+  width: 120px;
+  height: 63px;
+  background-image: url(../img/01.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  margin: 0 0 20px 10px;
+  font-size: 22px;
+  color: #333333;
+}
+#main .zhanghu .title p {
+  position: absolute;
+  bottom: 20%;
+  right: -20%;
+}
+#main .zhanghu .container {
+  float: left;
+  position: relative;
+  width: 245px;
+  height: 150px;
+  margin: 0 33px 30px 0;
+  background-image: url(../img/video.png);
+  background-repeat: no-repeat;
+}
+#main .zhanghu .container .black {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: black;
+  opacity: .5;
+}
+#main .zhanghu .container .txt span:nth-child(1) {
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: bold;
+}
+#main .zhanghu .container .txt span:nth-child(2) {
+  position: absolute;
+  left: 22px;
+  top: 85px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: bold;
+}
+#main .zhanghu .container .txt span:nth-child(3) {
+  position: absolute;
+  right: 27px;
+  top: 60px;
+  width: 35px;
+  height: 35px;
+  background: url(../img/play.png) no-repeat 0 0;
+}
+#main .shopping:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#main .shopping .title {
+  position: relative;
+  width: 120px;
+  height: 67px;
+  background-image: url(../img/02.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  margin: 0 0 20px 10px;
+  font-size: 22px;
+  color: #333333;
+}
+#main .shopping .title p {
+  position: absolute;
+  bottom: 20%;
+  right: -90%;
+}
+#main .shopping .container {
+  cursor: pointer;
+  float: left;
+  position: relative;
+  width: 245px;
+  height: 150px;
+  margin: 0 33px 30px 0;
+  background-image: url(../img/video.png);
+  background-repeat: no-repeat;
+}
+#main .shopping .container .black {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: black;
+  opacity: .5;
+}
+#main .shopping .container .txt span:nth-child(1) {
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: bold;
+}
+#main .shopping .container .txt span:nth-child(2) {
+  position: absolute;
+  left: 22px;
+  top: 85px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: bold;
+}
+#main .shopping .container .txt span:nth-child(3) {
+  position: absolute;
+  right: 27px;
+  top: 60px;
+  width: 35px;
+  height: 35px;
+  background: url(../img/play.png) no-repeat 0 0;
+}
+#main .type:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#main .type .title {
+  position: relative;
+  width: 120px;
+  height: 69px;
+  background-image: url(../img/03.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  margin: 0 0 20px 10px;
+  font-size: 22px;
+  color: #333333;
+}
+#main .type .title p {
+  position: absolute;
+  bottom: 20%;
+  right: -70%;
+}
+#main .type .container {
+  cursor: pointer;
+  float: left;
+  position: relative;
+  width: 245px;
+  height: 150px;
+  margin: 0 33px 30px 0;
+  background-image: url(../img/video.png);
+  background-repeat: no-repeat;
+}
+#main .type .container .black {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: black;
+  opacity: .5;
+}
+#main .type .container .txt span:nth-child(1) {
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: bold;
+}
+#main .type .container .txt span:nth-child(2) {
+  position: absolute;
+  left: 22px;
+  top: 85px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: bold;
+}
+#main .type .container .txt span:nth-child(3) {
+  position: absolute;
+  right: 27px;
+  top: 60px;
+  width: 35px;
+  height: 35px;
+  background: url(../img/play.png) no-repeat 0 0;
+}
+#main .action:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#main .action .title {
+  position: relative;
+  width: 120px;
+  height: 70px;
+  background-image: url(../img/04.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  margin: 0 0 20px 10px;
+  font-size: 22px;
+  color: #333333;
+}
+#main .action .title p {
+  position: absolute;
+  bottom: 20%;
+  right: -55%;
+}
+#main .action .container {
+  cursor: pointer;
+  float: left;
+  position: relative;
+  width: 245px;
+  height: 150px;
+  margin: 0 33px 30px 0;
+  background-image: url(../img/video.png);
+  background-repeat: no-repeat;
+}
+#main .action .container .black {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: black;
+  opacity: .5;
+}
+#main .action .container .txt span:nth-child(1) {
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: bold;
+}
+#main .action .container .txt span:nth-child(2) {
+  position: absolute;
+  left: 22px;
+  top: 85px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: bold;
+}
+#main .action .container .txt span:nth-child(3) {
+  position: absolute;
+  right: 27px;
+  top: 60px;
+  width: 35px;
+  height: 35px;
+  background: url(../img/play.png) no-repeat 0 0;
+}
+#main .cloud:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#main .cloud .title {
+  position: relative;
+  width: 120px;
+  height: 70px;
+  background-image: url(../img/05.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  margin: 0 0 20px 10px;
+  font-size: 22px;
+  color: #333333;
+}
+#main .cloud .title p {
+  position: absolute;
+  bottom: 20%;
+  right: -90%;
+}
+#main .cloud .container {
+  cursor: pointer;
+  float: left;
+  position: relative;
+  width: 245px;
+  height: 150px;
+  margin: 0 33px 30px 0;
+  background-image: url(../img/video.png);
+  background-repeat: no-repeat;
+}
+#main .cloud .container .black {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: black;
+  opacity: .5;
+}
+#main .cloud .container .txt span:nth-child(1) {
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: bold;
+}
+#main .cloud .container .txt span:nth-child(2) {
+  position: absolute;
+  left: 22px;
+  top: 85px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: bold;
+}
+#main .cloud .container .txt span:nth-child(3) {
+  position: absolute;
+  right: 27px;
+  top: 60px;
+  width: 35px;
+  height: 35px;
+  background: url(../img/play.png) no-repeat 0 0;
+}

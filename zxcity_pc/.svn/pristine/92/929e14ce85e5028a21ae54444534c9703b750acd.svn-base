@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <title></title>
+    <link rel="stylesheet" href="../common/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="css/userCenter.css">
+</head>
+<body>
+<div id="wrapper">
+    <div class="breadNav">
+        <ol>
+            <li><a href="javascript:void(0)">首页</a></li>
+            <li></li>
+            <li><a href="javascript:void(0)">玩家挣钱</a></li>
+        </ol>
+        <div class="mobilePhone">
+            观看更多精彩
+        </div>
+    </div>
+    <div class="mainLeft">
+        <div class="mainLeft-title">
+            看不够的金秋坝上，走一趟北京-内蒙-红山军马场！
+        </div>
+        <div class="mainLeft-bg">
+            <div class="enroll-num">
+                <p>至少要10人报名才能开始</p>
+                <div>
+                    <i></i>
+                    80/120
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="issuer">
+            <div class="issuer-Info"></div>
+            <span>发布人</span>
+            <span class="user">亚历桑德拉</span>
+            <span>实名认证</span>
+        </div>
+        <div class="hotCircle">
+            <div class="sidebar-title">
+                <h4 class="txt">最热玩家圈活动</h4>
+            </div>
+            <div class="sidebar-list">
+                <ul>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">1</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">2</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">3</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">4</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">5</i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="hotFans">
+            <div class="sidebar-title">
+                <h4 class="txt">最热粉团队活动</h4>
+            </div>
+            <div class="sidebar-list">
+                <ul>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">1</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">2</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">3</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">4</i>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/person.png" class="headImg">
+                        <div class="info">
+                            <p class="title">团队爬山游玩团队</p>
+                            <p class="userName">迷雾的胖子</p>
+                            <p class="actionStart">
+                                活动开始时间：2017.1.20
+                            </p>
+                            <i class="num">5</i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../common/scripts/jquery-1.11.1.min.js"></script>
+<script src="../common/scripts/commonUtil.js"></script>
+<script>
+
+</script>
+</html>

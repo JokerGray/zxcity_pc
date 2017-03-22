@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>约吧服务</title>
+    <link rel="stylesheet" href="../common/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/appointment.css">
+</head>
+<body>
+    <!--正文内容-->
+    <div class="appointment-body container">
+        <div class="appointment-content">
+            <!--证书及相关信息-->
+            <div class="content-info">
+                <div class="info-menu">
+                    <div class="btn-group">
+                        <button type="button" class="btn active">厨师</button>
+                        <button type="button" class="btn">游泳</button>
+                        <button type="button" class="btn">健身</button>
+                    </div>
+                </div>
+                <div class="info-cook">
+                    <div class="cook-slider">
+                        <ul>
+                            <li><img src="img/cook1.png"/></li>
+                            <!--<li><img src="img/cook2.png"/></li>-->
+                        </ul>
+                        <div class="cookPage"><span class="cookpage-num">1</span>/<span class="cookpage-sum">2</span></div>
+                        <div class="cookTitle">厨师证</div>
+                    </div>
+                    <div class="infoDetail">
+                        <ul class="infoDetail-ul">
+                            <li>线下报价：<span>100元/次</span></li>
+                            <li>服务评分：<div class="star"><i class="yellowStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i></div></li>
+                            <li>服务次数：<span>1128次</span></li>
+                            <li>点赞次数：<span>100元/次</span></li>
+                        </ul>
+                        <dl>
+                            <dt>服务时间：</dt>
+                            <dd>周一至周日</dd>
+                            <dt>服务方式：</dt>
+                            <dd><button type="button" class="btn">Ta来找我</button><button type="button" class="btn">我去找Ta</button></dd>
+                            <dt>服务范围：</dt>
+                            <dd>武汉市 洪山区</dd>
+                            <dt>服务地址：</dt>
+                            <dd>武汉市 洪山区 陌陌小区 7栋 701号</dd>
+                            <dt>服务介绍：</dt>
+                            <dd>论吃饭 让你先点，是尊重。为你夹菜，是体贴及时擦掉污渍是干净,和服务员说谢谢是礼貌。这些加起来，就是一个人的教养。</dd>
+                            <dt>服务特色：</dt>
+                            <dd>论吃饭 让你先点，是尊重。为你夹菜，是体贴及时擦掉污渍是干净,和服务员说谢谢是礼貌。这些加起来，就是一个人的教养。</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="share">
+                    <span>分享给朋友：</span>
+                    <ul class="shareList">
+                        <li><a class="qzone"></a></li>
+                        <li><a class="sina"></a></li>
+                        <li><a class="qq"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--评论-->
+            <div class="content-conment">
+                <div class="conmentTit">
+                    <h3>评论(<span>2</span>)</h3>
+                </div>
+                <div class="conmentDetail">
+                    <div class="conmentDetail-info">
+                        <div class="conmentDetail-head">
+                            <img src="img/conmentTx.png">
+                        </div>
+                        <div class="conmentDetail-article">
+                            <div class="article-nameInof">
+                                <div class="nameInfo-username"><span>90后疯狂的石头</span><i class="man"></i></div>
+                                <div class="nameInfo-star"><i class="yellowStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i></div>
+                            </div>
+                            <div class="conment-date">2016-09-12</div>
+                            <div class="conment-text">论吃饭 让你先点，是尊重。为你夹菜，是体贴及时擦掉污渍是干净,和服务员说谢谢是礼貌。这些加起来，就是一个人的教养。</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn lookMore">查看更多</button>
+                </div>
+            </div>
+        </div>
+        <!--侧边栏-->
+        <div class="appointment-sidebar">
+            <div class="sidebar-userInfo">
+                <div class="userInfo-background">
+                    <img src="img/headTx.png" />
+                    <div class="userInfo-mask"></div>
+                </div>
+                <div class="userInfo-infomation">
+                    <img class="userInfo-head" src="img/headTx.png"/>
+                    <div class="nameInfo-username"><span>80年代的石头</span><i class="man"></i></div>
+                    <div class="clear"></div>
+                    <div class="phoneTest"><i class="phoneIcon"></i><span>手机已认证</span></div>
+                    <div class="idTest"><i class="idIcon"></i><span>身份已认证</span></div>
+                </div>
+            </div>
+            <div class="sidebar-hotSale">
+                <h4><i class="topIocn"></i>约吧热销榜</h4>
+                <ul class="hotSaleList">
+                    <li>
+                        <div class="topHead">
+                            <i class="topNum1"></i>
+                            <img src="img/top1.png">
+                        </div>
+                        <div class="topInfo">
+                            <p class="topInfo-message">团队爬山游玩啦</p>
+                            <p class="topInfo-userName">迷雾中的胖子</p>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="topHead">
+                            <i class="topNum2"></i>
+                            <img src="img/top2.png">
+                        </div>
+                        <div class="topInfo">
+                            <p class="topInfo-message">团队爬山游玩啦</p>
+                            <p class="topInfo-userName">迷雾中的胖子</p>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="topHead">
+                            <i class="topNum3"></i>
+                            <img src="img/top3.png">
+                        </div>
+                        <div class="topInfo">
+                            <p class="topInfo-message">团队爬山游玩啦</p>
+                            <p class="topInfo-userName">迷雾中的胖子</p>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="topHead">
+                            <i class="topNum4"></i>
+                            <img src="img/top4.png">
+                        </div>
+                        <div class="topInfo">
+                            <p class="topInfo-message">团队爬山游玩啦</p>
+                            <p class="topInfo-userName">迷雾中的胖子</p>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="topHead">
+                            <i class="topNum5"></i>
+                            <img src="img/top5.png">
+                        </div>
+                        <div class="topInfo">
+                            <p class="topInfo-message">团队爬山游玩啦</p>
+                            <p class="topInfo-userName">迷雾中的胖子</p>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="jiange"></div>
+            </div>
+            <div class="sidebar-fierce">
+                <h4><i class="topIocn"></i>约吧牛人榜</h4>
+                <ul class="fierceList">
+                    <li>
+                        <div class="topHead">
+                            <i class="topNum1"></i>
+                            <img src="img/top1.png">
+                        </div>
+                        <div class="topInfo">
+                            <div class="topInfo-message">团队爬山游玩啦</div>
+                            <div class="topInfo-userName">迷雾中的胖子</div>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="topHead">
+                            <i class="topNum2"></i>
+                            <img src="img/top2.png">
+                        </div>
+                        <div class="topInfo">
+                            <div class="topInfo-message">团队爬山游玩啦</div>
+                            <div class="topInfo-userName">迷雾中的胖子</div>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="topHead">
+                            <i class="topNum3"></i>
+                            <img src="img/top3.png">
+                        </div>
+                        <div class="topInfo">
+                            <div class="topInfo-message">团队爬山游玩啦</div>
+                            <div class="topInfo-userName">迷雾中的胖子</div>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="topHead">
+                            <i class="topNum4"></i>
+                            <img src="img/top4.png">
+                        </div>
+                        <div class="topInfo">
+                            <div class="topInfo-message">团队爬山游玩啦</div>
+                            <div class="topInfo-userName">迷雾中的胖子</div>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="topHead">
+                            <i class="topNum5"></i>
+                            <img src="img/top5.png">
+                        </div>
+                        <div class="topInfo">
+                            <div class="topInfo-message">团队爬山游玩啦</div>
+                            <div class="topInfo-userName">迷雾中的胖子</div>
+                            <div class="fans"><i class="heart"></i><span>1200</span></div>
+                            <div class="service"><i class="talk"></i><span>1200</span></div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="jiange"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

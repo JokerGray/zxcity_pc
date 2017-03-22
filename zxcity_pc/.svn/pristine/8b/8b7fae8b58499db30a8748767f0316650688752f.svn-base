@@ -1,0 +1,129 @@
+/**ajax common function*/
+function AjaxData(async){
+    this.url = "";
+	this.requestTimeOut = 5000;
+	this.dataType = "json";
+	this.method = "post";
+	this.async = (async == undefined ||async)?true:false;//true为异步，false为同步 默认为true
+}
+AjaxData.prototype = {
+    contructor: AjaxData,
+	setMethod:function(method){
+		this.method = method;
+	},
+	setUrl:function(url){
+		this.url = url;
+	},
+    setRequestTimeOut : function(t){
+		this.requestTimeOut = t;
+	},
+    request: function (method,url,data,callback){
+        if(method){
+            this.method = method;
+        }
+        if(this.method == ''){
+            console.error("请设置数据请求方式！");
+            return;
+        }
+        if(this.url == ''){
+            console.error("请设置数据请求地址！");
+            return;
+        }
+        if(this.method.toLowerCase() == 'get'){
+            this.cache = true;
+        }else{
+            this.cache = false;
+        }
+        $.ajax({
+            type:this.method,
+            url:this.url,
+            data:this.data,
+            cache:this.cache,
+            timeout:this.timeOut,
+            dataType:this.dataType,
+            async:this.async,
+            success: function(data){
+                if(typeof callback == "function"){
+                    callback(data);
+                }
+            },
+            error: function(xhr, textStatus, errorThrown){
+                var errorMess = "";
+                if(textStatus != undefined){
+                   switch(textStatus){
+                   case "timeout":
+                	   errorMess="请求超时，请稍后再试！";
+                	   break;
+                   case "error":
+                	   errorMess="请求错误，请稍后再试！";
+                	   break;
+                   case "notmodified":
+                	   errorMess="请求异常，请稍后再试！";
+                	   break;
+                   case "parsererror":
+                	   errorMess="解析错误，请稍后再试！";
+                	   break;
+                   }
+                }
+                if(errorThrown){
+                    errorMess = errorThrown;
+                }
+                if(xhr){
+                    errorMess="错误状态："+xhr.status;
+                }
+                return errorMess;
+            }
+        })
+    }
+}
+
+/**commonUtil function*/
+function CommonUtil(){}
+CommonUtil.prototype = {
+    constructor: CommonUtil,
+    ajaxData: new AjaxData(),
+    getUrlParam: function(name){ //根据参数名获取参数值
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	    var r = window.location.search.substr(1).match(reg);
+	    if (r != null){
+	    	r[2] = r[2].replace(new RegExp("%", 'g'), "%25");
+	    	return decodeURI(r[2]);
+	    }
+	    return "";
+	},
+    getParams: function(){ //获取请求地址中的参数，返回结果为对象
+        var url = location.search;
+    	var params = {};
+    	if (url.indexOf("?") != -1) {
+    		var str = url.substr(1);
+    		var strs = str.split("&");
+    		for(var i = 0; i < strs.length; i ++) {
+    			params[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+    		}
+    	}
+    	return params;
+    },
+
+    enterEventHandler: function(obj,callback){ //输入框回车事件
+		obj.keydown(function(event){
+			if(event.keyCode == 13){
+				callback();
+			}
+		});
+	},
+    HTMLDecodeHandler : function(str){ //内容显示解码
+		if(str != null){
+			var  s = str.replace(/&amp;/g, "&");
+			s = s.replace(/&lt;|&amp;lt;/g, "<");
+			s = s.replace(/&gt;|&amp;gt;/g, ">");
+			s = s.replace(/&nbsp;/g, " ");
+			s = s.replace(/'/g, "\'");
+			s = s.replace(/&quot;/g, "\"");
+			s = s.replace(/ <br>/g, "\n");
+			return s;
+		}
+		return str;
+	}
+}
+
+window.CommonUtil = new CommonUtil();

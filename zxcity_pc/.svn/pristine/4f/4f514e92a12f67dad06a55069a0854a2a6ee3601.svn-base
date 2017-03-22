@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache, must-revalidate">
+        <meta http-equiv="expires" content="0">
+        <title></title>
+        <link rel="stylesheet" href="common/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="common/css/common.css">
+        <link rel="stylesheet" href="index/index.css">
+    </head>
+    <body>
+        <main class="body-wrapper">
+            <div class="top-wrap">
+                <div class="container top-wrap-inner">
+                    <header id="header"></header>
+                    <div class="slogen"><img src="index/image/slogen.png" alt="智享城市App"></div>
+                    <div class="download-link">
+                        <a class="ios-icon" href="javascript:void(0);"></a>
+                        <a class="android-icon" href="javascript:void(0);"></a>
+                    </div>
+                    <div class="app-show-img"><img src="index/image/app_cut_img.png" alt="智享城市App"></div>
+                    <div class="down-arrow">
+                        <a href="javascript:void(0);"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="main-wrap">
+                <div class="item-content clearfix video-rank">
+                    <div class="container">
+                        <div class="item-title">
+                            <span>视频排行榜</span><a class="item-app-link" href="javascript:void(0);"></a>
+                        </div>
+                        <div class="item-list">
+                            <ul>
+                                <li>
+                                    <div class="pic"><img src="index/image/23.jpg" alt=""></div>
+                                    <div class="pic-mask"><span class="play-icon"></span></div>
+                                    <div class="info">
+                                        <span class="name">可爱的小朋友</span>
+                                        <div class="pull-right like">
+                                            <a class="glyphicon glyphicon-heart" href="javascript:void(0);"></a>
+                                            <span>20.5万</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-content clearfix hot-sell">
+                    <div class="container">
+                        <div class="item-title">
+                            <span>约吧热销榜</span><a class="item-app-link" href="javascript:void(0);"></a>
+                        </div>
+                        <div class="item-list">
+                            <div class="list-con media">
+                                <div class="media-left">
+                                    <a class="pic" href="#"><img src="index/image/24.jpg" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <p class="title">我是一名顶级厨师</p>
+                                    <p><span class="price">￥350</span><span class="label">厨师</span></p>
+                                    <p class="num">【已售3600】</p>
+                                </div>
+                            </div>
+                            <div class="list-con media">
+                                <div class="media-left">
+                                    <a class="pic" href="#"><img src="index/image/24.jpg" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <p class="title">我是一名顶级厨师</p>
+                                    <p><span class="price">￥350</span><span class="label">厨师</span></p>
+                                    <p class="num">【已售3600】</p>
+                                </div>
+                            </div>
+                            <div class="list-con media">
+                                <div class="media-left">
+                                    <a class="pic" href="#"><img src="index/image/24.jpg" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <p class="title">我是一名顶级厨师</p>
+                                    <p><span class="price">￥350</span><span class="label">厨师</span></p>
+                                    <p class="num">【已售3600】</p>
+                                </div>
+                            </div>
+                            <div class="list-con media">
+                                <div class="media-left">
+                                    <a class="pic" href="#"><img src="index/image/24.jpg" alt=""></a>
+                                </div>
+                                <div class="media-body">
+                                    <p class="title">我是一名顶级厨师</p>
+                                    <p><span class="price">￥350</span><span class="label">厨师</span></p>
+                                    <p class="num">【已售3600】</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-content clearfix">
+                    <div class="container">
+                        <div class="item-title">
+                            <span>约吧牛人榜</span><a class="item-app-link" href="javascript:void(0);"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="common/scripts/jquery-1.11.1.min.js"></script>
+        <script src="common/scripts/commonUtil.js"></script>
+        <script src="index/index.js"></script>
+    </body>
+</html>

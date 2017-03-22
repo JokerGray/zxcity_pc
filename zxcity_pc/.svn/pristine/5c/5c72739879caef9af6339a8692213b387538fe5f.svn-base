@@ -1,0 +1,67 @@
+<div class="pop-box">
+    <div class="pop-inner">
+        <div class="pop-title">手机号登录</div>
+        <div class="pop-con login">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="loginName" placeholder="请输入手机号">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="loginPassword" placeholder="请输入密码">
+                </div>
+                <div class="form-group">
+                    <div class="pull-left checkbox">
+                        <label><input type="checkbox">下次自动登录</label>
+                    </div>
+                    <div class="pull-right checkbox">
+                        <a href="#">忘记密码?</a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn submit-btn">登录</button>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn change-btn">还没有账号？立即注册</button>
+                </div>
+            </form>
+        </div>
+        <div class="pop-con register hide">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="registName" placeholder="请输入手机号">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="registPassword" placeholder="请输入密码">
+                </div>
+                <div class="form-group security-code">
+                    <button type="button" class="btn">免费获取验证码</button>
+                    <input type="text" class="form-control" placeholder="验证码">
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn submit-btn">注册</button>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn change-btn">已有账号？立即登录</button>
+                </div>
+            </form>
+        </div>
+        <div class="pop-con find-pwd hide">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="registName" placeholder="请输入手机号">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="registPassword" placeholder="请输入密码">
+                </div>
+                <div class="form-group security-code">
+                    <button type="button" class="btn">免费获取验证码</button>
+                    <input type="text" class="form-control" placeholder="验证码">
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn submit-btn">确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="pop-mask"></div>
+</div>

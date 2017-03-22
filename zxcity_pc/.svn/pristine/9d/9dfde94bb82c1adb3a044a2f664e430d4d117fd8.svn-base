@@ -1,0 +1,206 @@
+//获取缓存 通行证码
+var apikey = sessionStorage.getItem('apikey') == null ? "test" : sessionStorage.getItem('apikey');
+//获取缓存 版本号
+var version = sessionStorage.getItem('version') == null ? "1" : sessionStorage.getItem('version');
+
+/**常量*/
+var sysConfig = {
+    //手机号验证正则表达式
+    'REG_MOBILE': /^[1]([3][0-9]{1}|[5][0-9]{1}|[7][0-9]{1}|[8][0-9]{1}|[4][0-9])[0-9]{8}$/,
+    //非零正整数
+    'REG_NUM_UP_ZERO':/^[1-9]\d*$/,
+    //中文
+    'REG_CN': /[\u4e00-\u9fa5]/,
+    //手机验证码再次获取间隔时间
+    'DELAY_TIME':60
+}
+
+/**登录注册相关事件*/
+function LoginBoxFun(){}
+LoginBoxFun.prototype = {
+    constructor: LoginBoxFun,
+    toLogin: function(){
+
+    },
+    toRegister: function(){
+
+    },
+    findPwd: function(){
+
+    }
+};
+
+/**commonUtil function*/
+function CommonUtil(){}
+CommonUtil.prototype = {
+    constructor: CommonUtil,
+    ajaxData: function(cmd, param){ //ajax请求
+        var resData = "";
+        $.ajax({
+    		type: "POST",
+    		url: "/zxcity_restful/ws/rest",
+    		dateType: "json",
+    		async: false,
+    		data: {
+    			"cmd": cmd,
+    			"data": param,
+    			"version": version
+    		},
+    		beforeSend: function(request){
+    			request.setRequestHeader("apikey", apikey);
+    		},
+    		success: function(res){
+    			resData = res;
+    		},
+    		error: function(res){
+    			resData = res;
+    		}
+    	});
+        return resData;
+    },
+    getUrlParam: function(name){ //根据参数名获取参数值
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	    var r = window.location.search.substr(1).match(reg);
+	    if (r != null){
+	    	r[2] = r[2].replace(new RegExp("%", 'g'), "%25");
+	    	return decodeURI(r[2]);
+	    }
+	    return "";
+	},
+    getParams: function(){ //获取请求地址中的参数，返回结果为对象
+        var url = location.search;
+    	var params = {};
+    	if (url.indexOf("?") != -1) {
+    		var str = url.substr(1);
+    		var strs = str.split("&");
+    		for(var i = 0; i < strs.length; i ++) {
+    			params[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+    		}
+    	}
+    	return params;
+    },
+    enterEventHandler: function(obj,callback){ //输入框回车事件
+		obj.keydown(function(event){
+			if(event.keyCode == 13){
+				callback();
+			}
+		});
+	},
+    HTMLDecodeHandler : function(str){ //内容显示解码
+		if(str != null){
+			var  s = str.replace(/&amp;/g, "&");
+			s = s.replace(/&lt;|&amp;lt;/g, "<");
+			s = s.replace(/&gt;|&amp;gt;/g, ">");
+			s = s.replace(/&nbsp;/g, " ");
+			s = s.replace(/'/g, "\'");
+			s = s.replace(/&quot;/g, "\"");
+			s = s.replace(/ <br>/g, "\n");
+			return s;
+		}
+		return str;
+	},
+    getPhoneCodeNum: function(el, phoneNum){ //获取手机验证码
+        var _that = el;
+        _that.sec = _that.sec ? _that.sec : sysConfig.DELAY_TIME;
+        if($.trim(phoneNum) == ""){
+            alert("请输入手机号！");
+            return ;
+        }
+        //校验手机号是否正确
+        if(!sysConfig.REG_MOBILE.test(phoneNum)){
+            alert('请输入正确有效的手机号码！');
+            clearTimeout(_that.t);
+            $(_that).html("免费获取验证码");
+            delete _that.t;
+            delete _that.sec;
+			return;
+        }
+        if(_that.t){
+            //倒计时范围内重复点击提示
+        	alert("请1分钟后再试");
+            return;
+        }
+        else{
+            //调用获取手机验证码的接口
+            //TODO
+            /*var res = CommonUtil.ajaxData("", {});
+            if(res.code == 1){
+                alert(res.msg);
+    			clearTimeout(_that.t);
+                $(_that).html("免费获取验证码");
+                delete _that.t;
+                delete _that.sec;
+            }else{
+                alert(res.msg);
+            }*/
+
+            _that.t = setTimeout(function(){
+                if((_that.sec--) > 0){
+                    $(_that).html("重新发送("+_that.sec+")");
+                    _that.t = setTimeout(arguments.callee, 1000);
+                }else{
+                    clearTimeout(_that.t);
+                    $(_that).html("免费获取验证码");
+                    delete _that.t;
+                    delete _that.sec;
+                }
+            }, 1000);
+        }
+    },
+    openLoginDialog: function(type){ //打开登录注册窗口
+        $("#loginPopBox").load('login.html', function(){
+            var popTitle = (type == 'register') ? '注册智享账号' : (type == 'find-pwd' ? '找回密码' : '手机号登录');
+            $("#loginPopBox .pop-box .pop-title").html(popTitle);
+            $("#loginPopBox .pop-box ."+type).removeClass('hide').siblings().addClass('hide');
+            $("#loginPopBox .pop-box").fadeIn();
+
+            //关闭弹框
+            $(".pop-box .close-btn").click(function(){
+                $("#loginPopBox .pop-box").fadeOut();
+            });
+
+            //登录注册相互切换
+            $(".pop-box .pop-con .change-btn").click(function(){
+                var type = $(this).attr("data-rel");
+                var popTitle = (type == 'register') ? '注册智享账号' : '手机号登录';
+                $("#loginPopBox .pop-box .pop-title").html(popTitle);
+                $("#loginPopBox .pop-box ."+type).removeClass('hide').siblings().addClass('hide');
+            });
+            //切换至找回密码
+            $(".pop-box .pop-con .login .forget-pwd").click(function(){
+                $("#loginPopBox .pop-box .pop-title").html("找回密码");
+                $("#loginPopBox .pop-box .find-pwd").removeClass('hide').siblings().addClass('hide');
+            });
+
+            //获取手机验证码
+            $(".pop-box form.register .get-phone-code").click(function(){
+                var phoneNum = $(".pop-box form.register input[name=registName]").val();
+                CommonUtil.getPhoneCodeNum(this, phoneNum);
+            });
+            $(".pop-box form.find-pwd .get-phone-code").click(function(){
+                var phoneNum = $(".pop-box form.find-pwd input[name=registName]").val();
+                CommonUtil.getPhoneCodeNum(this, phoneNum);
+            });
+        });
+    },
+    addSkillLike: function(param){
+        var resData = this.ajaxData('shopWeb/addskillLike', param);
+        if(resData.code == 1){
+            if(param.likeStatus == 1){
+
+            }else{
+
+            }
+        }
+    }
+}
+window.CommonUtil = new CommonUtil();
+
+//页面加载导航与页脚
+$("#header").load("header.html", function(){
+    $(".header-top .link-btn a").click(function(){
+        var dataRel = $(this).attr("data-rel");
+        CommonUtil.openLoginDialog(dataRel);
+    });
+});
+$("#footer").load("footer.html");

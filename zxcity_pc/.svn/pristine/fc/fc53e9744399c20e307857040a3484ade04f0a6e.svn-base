@@ -1,0 +1,46 @@
+(function($){
+    var pageNo = 1, pageSize = 5;//通用入参
+    /*
+    *脸圈排行所需入参
+    * */
+    var cityId = 4201;//用户城市
+    var condition = 1;//1距离排序，2关注数排序,默认用户gamauser创建时间排序
+    var theodolite = "113.123,114.123";//经纬度
+
+    var paramAllUser = "{'cityId':"+ cityId + ",'condition':" + condition + ",'theodolite':" + theodolite + ",'page':" + pageNo + ",'row':" + pageSize + "}";//脸圈排行
+
+    var REQUEST_URL = {
+        ALLUESER:game/findAllUser //脸圈排行
+    };
+
+    //脸圈排行
+    function getAllUser(){
+        var res = CommonUtil.ajaxData(REQUEST_URL.CIRCLE,paramCircle);
+        var sHtml = "";
+        if(res.code == 1) {
+            for(var i=0;i<res.data.UserMainList.length;i++){
+                var row = res.data.UserMainList[i];
+                sHtml += '<li id="'+ row.scGameUser.gameUserId +'">' +
+                '<div class="topHead">' +
+                '<i class="topNum'+(i+1)+'"></i>' +
+                '<div class="topImage"><img src="' + row.scGameUser.userpic + '"/></div>' +
+                '</div>' +
+                '<div class="topInfo">'
+                if(row[i].scGameUser.signature == null || row[i].scGameUser.signature == ""){
+                    sHtml += '<p class="topInfo-message">' + "该用户太懒，什么都没有说~" + '</p>'
+                }else{
+                    '<p class="topInfo-message">' + row.scGameUser.signature + '</p>'
+                };
+                if(row[i].scGameUser.username == null){
+                    sHtml += '<p class="topInfo-userName">' + '空' + '</p>';
+                }else{
+                    sHtml += '<p class="topInfo-userName">' + row[i].scGameUser.username + '</p>';
+                };
+                sHtml += '<div class="perNum"><i class="heart"></i><span>' + row[i].scGameUser.likeCount + '</span></div>' +
+                '</div>' +
+                '</li>';
+            }
+            $(".hotSaleList").append(sHtml);
+        }
+    }
+ })(jQuery);

@@ -1,0 +1,18 @@
+(function($){
+    //过多字用省略号代替
+    function moreWord(event,num){
+        $(event).each(function(){
+            var val = $(this).text();
+            var valLength = val.length;
+            var subVal = val.substring(0,num)+"...";
+            if(valLength>num){
+                $(this).text(subVal);
+            }else{
+                $(this).text();
+            }
+        });
+    }
+
+    moreWord(".dynamicTit",107);
+
+})(jQuery);

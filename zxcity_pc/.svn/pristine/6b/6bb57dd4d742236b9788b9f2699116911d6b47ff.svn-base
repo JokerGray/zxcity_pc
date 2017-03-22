@@ -1,0 +1,302 @@
+(function($){
+    var pageNo = 1, pageSize = 5;
+    var cityId = 4201;
+    var userId = 52142;
+    var serviceId = 308;
+    var skillid;
+    var res;
+    var paramRank = "{'cityId':" + cityId + ", 'pagination':{'page':" + pageNo + ",'rows':"+ pageSize +"}}";//热销榜入参
+    var paramPerson = "{'cityId':" + cityId + ", 'pagination':{'page':" + pageNo + ",'rows':"+ pageSize +"}}";//约吧牛人榜入参
+    var paramUserSkill = "{'userId':" + userId +"}";//技能相关信息入参
+    var paramComment = "{'userId':" + userId +",'serviceId':"+ serviceId +", 'pagination':{'page':" + pageNo + ",'rows':"+ pageSize +"}}";//评论信息入参
+    var SERVICETIME = {
+        "1":"全周",
+        "2":"非周末",
+        "3":"只周末",
+        "4":"全天",
+        "5":"只白天",
+        "6":"只晚上"
+    };
+    var SERVICEMODE = {
+        "1":"服务者找需求者",
+        "2":"需求者找服务者",
+        "3":"线上服务"
+    };
+    var REQUEST_URL = {
+        TOPRANK: 'newservice/getTopRanking', //约吧热销榜列表
+        HOTPERSON: 'newservice/getHotPersonList',//约吧牛人榜列表
+        USERSKILL: 'newservice/getUserSkillDetailInfo',//查询指定用户发布的技能信息
+        CONMEN:'newservice/getCommentList' //技能评论
+    };
+
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)
+            return unescape(r[2]);
+        return null;
+    }
+
+    //热销榜列表
+    function topRank(){
+        var res = CommonUtil.ajaxData(REQUEST_URL.TOPRANK,paramRank);
+        var sHtml = "";
+        if(res.code == 1){
+            for(var i = 0; i < res.data.length; i++){
+                var row = res.data[i];
+                sHtml += '<li date-userId="'+ row.serviceUserId +'">' +
+                            '<div class="topHead">' +
+                                 '<i class=" topNum'+(i+1)+'"></i>' +
+                                '<div class="topImage"><img src="' + row.serviceUrl + '"/></div>' +
+                            '</div>' +
+                            '<div class="topInfo">' +
+                                '<p class="topInfo-message">' + row.serviceName + '</p>'
+                if(row.serviceUserName == null){
+                    sHtml += '<p class="topInfo-userName">' + '空' + '</p>';
+                }else{
+                    sHtml += '<p class="topInfo-userName">' + row.serviceUserName + '</p>';
+                }
+                sHtml += '<div class="fans"><i class="heart"></i><span>' + 1200 + '</span></div>' +
+                            '<div class="service"><i class="talk"></i><span>' + row.orderNumber + '</span></div>' +
+                        '</div>' +
+                    '</li>';
+            };
+            $("#topRank").append(sHtml);
+        }else{
+            console.error(res.msg);
+        }
+    };
+
+    topRank();
+
+    //约吧牛人榜
+    function hotPerson(){
+        var res = CommonUtil.ajaxData(REQUEST_URL.HOTPERSON,paramPerson);
+        var sHtml = "";
+        if(res.code == 1){
+            for(var i = 0; i < res.data.length; i++){
+                var row = res.data[i];
+                sHtml += '<li id="'+ row.userId +'">' +
+                            '<div class="topHead">' +
+                                '<i class="topNum'+(i+1)+'"></i>' +
+                                '<div class="topImage"><img src="' + row.userPic + '"/></div>' +
+                            '</div>' +
+                            '<div class="topInfo">' +
+                                '<p class="topInfo-message">' + '哈哈哈哈哈' + '</p>'
+                if(row.serviceUserName == null){
+                    sHtml += '<p class="topInfo-userName">' + '空' + '</p>';
+                }else{
+                    sHtml += '<p class="topInfo-userName">' + row.userName + '</p>';
+                }
+                sHtml += '<div class="fans"><i class="heart"></i><span>' + row.collection + '</span></div>' +
+                            '<div class="service"><i class="talk"></i><span>' + 1200 + '</span></div>' +
+                         '</div>' +
+                        '</li>';
+            };
+            $("#hotPerson").append(sHtml);
+        }else{
+            console.error(res.msg);
+        }
+    };
+
+    hotPerson();
+
+
+    //tab导航滑动
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30,
+        slideToClickedSlide:true
+        //end
+    });
+    //技能相关
+    function updateSkillInfo(index,res){
+        var skill = res.data.skillList[index];
+        var skillid = skill.serviceId;
+        var str = '';
+        var certificate_array = skill.certList;
+        var len = certificate_array.length;
+        //证书加载
+        if (len != 0) {
+            for(var b = 0; b < len; b++){
+                str += '<li class="swiper-slide">'+
+                     '<img src="'+ certificate_array[b].certDealUrl + '" name="' + certificate_array[b].certName +'"/>'+
+                '</li>';
+            }
+            $(".swiper-wrapper").append(str);
+        }
+        //技能信息加载
+        $('#service1').html(skill.servicePrice + "元/次");
+        var star = skill.startLevel;
+        var dHtml = '';
+        switch(star){
+            case 0:
+                dHtml = '<i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i>';
+                break;
+            case 1:
+                dHtml = '<i class="yellowStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i>';
+                break;
+            case 2:
+                dHtml = '<i class="yellowStar"></i><i class="yellowStar"></i><i class="grayStar"></i><i class="grayStar"></i><i class="grayStar"></i>';
+                break;
+            case 3:
+                dHtml = '<i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i><i class="grayStar"></i><i class="grayStar"></i>';
+                break;
+            case 4:
+                dHtml = '<i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i><i class="grayStar"></i>';
+                break;
+            default :
+                dHtml = '<i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i><i class="yellowStar"></i>';
+
+        };
+        $(".star").html(dHtml);
+        $('#orderNumber').html(skill.orderNumber + "次");
+        $('#collection').html(skill.collection + "次");
+        var timestr = '';
+        var times = skill.serviceTime.split(',');
+        $.each(times, function (index, value) {
+            switch (value) {
+                case '1':
+                    timestr += '周一至周日 ';
+                    break;
+                case '2':
+                    timestr += '非周末 ';
+                    break;
+                case '3':
+                    timestr += '只周末 ';
+                    break;
+                case '4':
+                    timestr += '全天 ';
+                    break;
+                case '5':
+                    timestr += '只白天 ';
+                    break;
+                case '6':
+                    timestr += '只晚上 ';
+            }
+        });
+        $('#serviceTime').html(timestr);
+
+        var servicemodal = '';
+        var servicesmodals = skill.serviceMode.split(',');
+        $.each(servicesmodals, function (index, value) {
+            switch (value) {
+                case '1':
+                    servicemodal += '可上门服务 ';
+                    $('#service_range').html(skill.serviceRange);
+                    $('range_div').show();
+                    break;
+                case '2':
+                    servicemodal += '可到店服务 ';
+                    $('#service_address').html(skill.serviceAddress);
+                    $('address_div').show();
+                    break;
+                case '3':
+                    servicemodal += '可线上服务 ';
+                    break;
+            }
+        });
+        $('#servicemodal').html(servicemodal);
+        $('#serviceRange').html(skill.serviceRange);
+        $('#serviceAddress').html(skill.serviceAddress);
+        $("#serviceComment").html(skill.serviceComment);
+        $("#characteristic").html(skill.characteristic);
+    }
+
+    //用户头部信息
+    function updateHeadInfo(skillindex,res){
+        var sHtml = "";
+        var dHtml = "";
+        $(".userInfo-background").find("i").css("background-image","url("+res.data.userPic+")");//头像以及背景图
+        $(".userInfo-infomation").find(".headTx").css("background-image","url("+res.data.userPic+")");
+        $(".nameInfo-username span").html(res.data.userName);//用户名
+        //判断性别
+        if(res.data.userSex == "女"){
+            $(".nameInfo-username i").attr("class","woman");
+        }else{
+            $(".nameInfo-username i").attr("class","man");
+        };
+        //判断手机认证
+        if(res.data.isPhoneCert == 1){
+            $("#isPhoneCert").find("span").html("手机已认证");
+        }else{
+            $("#isPhoneCert").find("span").html("手机未认证");
+        };
+        if(res.data.isRealName == 1){
+            $("#isRealName").find("span").html("身份已认证");
+        }else{
+            $("#isRealName").find("span").html("身份未认证");
+        };
+        //左侧技能相关信息
+        var skillArr = [];
+        for(var i = 0; i < res.data.skillList.length; i++){
+            skillArr.push(res.data.skillList[i]);
+        };
+        var skillid = GetQueryString('skillid');
+        //顶部服务技能名称
+        for(var a = 0; a < skillArr.length; a++){
+            if(skillArr[a].serviceId == skillid){
+                sHtml = '<li class="tabNav swiper-slide active" data-serviceId="'+ skillArr[a].serviceId  +'"><span>'+skillArr[a].serviceName+'</span></li>';
+            }else{
+                sHtml = '<li class="tabNav swiper-slide" data-serviceId="'+ skillArr[a].serviceId  +'"><span>'+skillArr[a].serviceName+'</span></li>';
+                swiper.appendSlide(sHtml);
+            }
+
+        };
+
+
+
+
+        changeTab();
+        if (skillArr.length != 0) {
+            $('#skills').show();
+            $('.infofooter').show();
+            $('#none_skill').hide();
+            updateSkillInfo(skillindex,res); //初始加载第1个技能
+        }else{
+            //此用户无技能
+            $('#skills').hide();
+            $('.content-conment').hide();
+            $('#none_skill').show();
+        }
+
+    }
+
+
+//左侧技能相关信息
+    function userSkill(skillindex){
+        var res = CommonUtil.ajaxData(REQUEST_URL.USERSKILL,paramUserSkill);
+
+        if(res.code == 1) {
+            //右侧用户信息
+            updateHeadInfo(skillindex,res);
+
+
+            //证书滚动
+            //jQuery(".slideBox").slide({mainCell:".bd ul",autoPlay:true});
+        }else{
+            console.log(res.msg);
+        }
+    };
+    userSkill(0);
+
+
+    //服务技能名称tab切换
+   function changeTab() {
+        $(".info-cook").eq(0).addClass("actve").siblings(".info-cook").attr("class","info-cook");
+       $("#menuTab").find("li").eq(0).attr("id","active").siblings().attr("id"," ");
+       $("#menuTab").on("click", "li", function () {
+            var index = $(this).index();
+            userSkill(index);
+            /*$(".info-cook").each(function(){
+                if(serviceId == $(this).attr("data-serviceId")){
+                    $(this).addClass("actve").siblings(".info-cook").attr("class","info-cook");
+                }
+            })*/
+        });
+    };
+
+})(jQuery);

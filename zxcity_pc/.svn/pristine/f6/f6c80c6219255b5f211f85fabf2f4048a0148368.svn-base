@@ -1,0 +1,87 @@
+//获取缓存 通行证码
+var apikey = sessionStorage.getItem('apikey') == null ? "test" : sessionStorage.getItem('apikey');
+//获取缓存 版本号
+var version = sessionStorage.getItem('version') == null ? "1" : sessionStorage.getItem('version');
+
+/**commonUtil function*/
+function CommonUtil(){}
+CommonUtil.prototype = {
+    constructor: CommonUtil,
+    ajaxData: function(cmd, param){ //ajax请求
+        var resData = "";
+        $.ajax({
+    		type: "POST",
+    		url: "/zxcity_restful/ws/rest",
+    		dateType: "json",
+    		async: false,
+    		data: {
+    			"cmd": cmd,
+    			"data": param,
+    			"version": version
+    		},
+    		beforeSend: function(request){
+    			request.setRequestHeader("apikey", apikey);
+    		},
+    		success: function(res){
+    			resData = res;
+    		},
+    		error: function(res){
+    			resData = res;
+    		}
+    	});
+        return resData;
+    },
+    getUrlParam: function(name){ //根据参数名获取参数值
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	    var r = window.location.search.substr(1).match(reg);
+	    if (r != null){
+	    	r[2] = r[2].replace(new RegExp("%", 'g'), "%25");
+	    	return decodeURI(r[2]);
+	    }
+	    return "";
+	},
+    getParams: function(){ //获取请求地址中的参数，返回结果为对象
+        var url = location.search;
+    	var params = {};
+    	if (url.indexOf("?") != -1) {
+    		var str = url.substr(1);
+    		var strs = str.split("&");
+    		for(var i = 0; i < strs.length; i ++) {
+    			params[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+    		}
+    	}
+    	return params;
+    },
+    enterEventHandler: function(obj,callback){ //输入框回车事件
+		obj.keydown(function(event){
+			if(event.keyCode == 13){
+				callback();
+			}
+		});
+	},
+    HTMLDecodeHandler : function(str){ //内容显示解码
+		if(str != null){
+			var  s = str.replace(/&amp;/g, "&");
+			s = s.replace(/&lt;|&amp;lt;/g, "<");
+			s = s.replace(/&gt;|&amp;gt;/g, ">");
+			s = s.replace(/&nbsp;/g, " ");
+			s = s.replace(/'/g, "\'");
+			s = s.replace(/&quot;/g, "\"");
+			s = s.replace(/ <br>/g, "\n");
+			return s;
+		}
+		return str;
+	},
+    addSkillLike: function(param){
+        var resData = this.ajaxData('shopWeb/addskillLike', param);
+        if(resData.code == 1){
+            if(param.likeStatus == 1){
+                
+            }else{
+
+            }
+        }
+    }
+}
+
+window.CommonUtil = new CommonUtil();

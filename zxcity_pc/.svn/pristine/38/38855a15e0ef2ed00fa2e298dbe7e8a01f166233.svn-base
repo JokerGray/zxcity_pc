@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <title>视频查看-提问</title>
+    <link rel="stylesheet" href="../common/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="css/videoDetails.css">
+</head>
+<body>
+<div id="title">
+    <h2>新办会员</h2>
+    <button class="btn">提问</button>
+</div>
+<div id="consult">
+    <textarea name="text"></textarea>
+    <a href="javascript:void(0)">提交</a>
+</div>
+<div id="main">
+    <!--<video src="#" controls="controls"></video>-->
+    <div class="layer">
+        <div class="play">
+            <div class="square"></div>
+        </div>
+    </div>
+</div>
+<div id="answer">
+    <div class="ask">
+        <button class="icon">问</button>
+        <span>天才</span>---
+        <span>女人花管理员</span>
+        <span>[2017-02-22 17:35:56]</span>
+    </div>
+    <div class="answer">
+        <span>答:</span>
+        <span>天才</span>---
+        <span>超级管理员</span>
+        <span>[2017-02-28 16:57:21]</span>
+    </div>
+</div>
+</body>
+<script src="../common/scripts/jquery-1.11.1.min.js"></script>
+<script src="../common/scripts/commonUtil.js"></script>
+<script>
+    function getMessage() {
+        $('#title .btn').on('click', function () {
+            $('#consult').slideToggle();
+        });
+        var txt = $('#consult textarea').val();
+        var txtParam = '{"":"","":""}';
+        var data = CommonUtil.ajaxData('', txtParam);
+        if (data.code == 1) {
+            //$('.answer').html();
+            alert(123);
+        }
+    }
+    getMessage();
+
+    function getVideoUrl() {
+        var param = {'catalogId': '24'};
+        var res = CommonUtil.ajaxData("shopWeb/getVideoListDetails", param);
+        if (res.code == 1) {
+            var html = '';
+            for (var i = 0; i < res.data.length; i++) {
+                var row = res.data[i];
+                var vedioUrl = row.vedioUrl;
+                html = '<video src="' + vedioUrl + '"></video>'
+            }
+            $('#main').prepend(html);
+            $('#main').on('click', function () {
+                $('.layer').hide();
+                $('#main video')[0].play();
+            })
+        } else {
+            console.error(res.msg);
+        }
+    }
+    getVideoUrl();
+
+</script>
+</html>
